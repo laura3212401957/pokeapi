@@ -1,3 +1,3 @@
 function pokemon(){
-    alert("pokemon")
+    document.getElementById("root").innerHTML = "pokemon"
 }

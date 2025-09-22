@@ -1,3 +1,3 @@
 function informativa(){
-    alert("informativa")
+    document.getElementById("root").innerHTML = "informativa"
 }

@@ -1,3 +1,3 @@
-function capturados(){
-    document.getElementById("root").innerHTML = "capturados"
+function Capturados(){
+    document.getElementById("root").innerHTML = "Capturados"
 }

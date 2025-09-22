@@ -5,7 +5,7 @@
 async function conexion() {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${totalPokes}`);
   const data = await res.json();
-  return data;
+  return data.results;
 }
 
 // Cargar todos los Pokémon al iniciar

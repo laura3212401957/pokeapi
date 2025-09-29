@@ -1,3 +1,3 @@
-function favoritos(){
-    document.getElementById("root").innerHTML = "favoritos"
+function Favoritos(){
+    document.getElementById("root").innerHTML = "Favoritos"
 }

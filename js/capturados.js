@@ -3,9 +3,10 @@ var misNumeros = JSON.parse(localStorage.getItem("misNumeros")) || [];
 function Aleatorios(){
     document.getElementById("nuevos").innerHTML = "";
     console.log("----------------------------------")
-    let pokesAleatorios = "";
+    let pokesAleatorios ="";
+
     for (let i = 0; i < 4; i++) {
-        //let num = Math.floor(Math.random() * rango) + 1;
+
         let num = Math.floor(Math.random() * pokemones.length) + 1;
 
         pokesAleatorios += `
@@ -15,12 +16,12 @@ function Aleatorios(){
                 <p>${pokemones[num - 1].name}</p>
             </div>`;
 
-
+        
         misNumeros = JSON.parse(localStorage.getItem("misNumeros")) || [];
         let existe = false;
-        for(let j = 0; j < misNumeros.length; j++){
-            if(misNumeros[j] === num){
-                existe = true;
+        for(let x= 0; x < misNumeros.length; x++){
+            if(misNumeros[x] === num){
+                existe=true;
                 break; 
             }
         }
@@ -40,9 +41,11 @@ function Aleatorios(){
     document.getElementById("nuevos").innerHTML += pokesAleatorios
     document.getElementById("contador").innerHTML = `${misNumeros.length} / ${totalPokes}`;
 }
-function Capturados(){
-    document.getElementById("root").innerHTML = "Capturados"
 
+function capturados(){
+    
+    document.getElementById("root").innerHTML = "";
+    
     //crear aleatorios
     const capturaAleatorea = document.createElement("section");
     capturaAleatorea.classList.add("c-lista");

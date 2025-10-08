@@ -26,6 +26,7 @@ alert (paramid+ "" + paramname)
     }
     //guardar el array actualizado en el localstorage
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
+
     //actualizar el icono en pantalla (si existe el boton)
     const boton = document.querySelector(`#corazon-${paramid}`);
     if (boton) boton.textContent = esFavorito ? "❤️" : "🤍";
@@ -38,7 +39,17 @@ async function Detalle(h){
 
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${h}`);
         const data = await res.json();
-        console.log(data)
+        
+        // Revisar si este Pokémon ya está en favoritos
+        favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+        esFavorito = favoritos.some(poke => poke.name === data.name);
+
+        // Tipos
+        let tipoPoke = "";
+        for (let i = 0; i < data.types.length; i++) {
+            tipoPoke += `<span>${data.types[i].type.name}</span> `;
+        }
+
         document.getElementById("root").innerHTML= `
     <section class="c-detalle">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png" alt="${data.name}" height="120" width="auto">
